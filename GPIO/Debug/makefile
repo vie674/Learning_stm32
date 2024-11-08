@@ -52,6 +52,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 GPIO.list \
 
+OBJCOPY_HEX += \
+GPIO.hex \
+
 
 # All Target
 all: main-build
@@ -75,12 +78,17 @@ GPIO.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+GPIO.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "GPIO.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) GPIO.elf GPIO.list GPIO.map default.size.stdout
+	-$(RM) GPIO.elf GPIO.hex GPIO.list GPIO.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

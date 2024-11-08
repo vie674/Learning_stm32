@@ -1,29 +1,10 @@
-21:35:06 **** Incremental Build of configuration Debug for project ADC ****
+11:54:16 **** Incremental Build of configuration Debug for project ADC ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:111:41: warning: ' 
- 
-' directive writing 4 bytes into a region of size between 3 and 7 [-Wformat-overflow=]
-  111 |           sprintf((char*)mess,"Value: %d \n \r",(int)value);
-      |                                         ^~~~~~
-../Core/Src/main.c:111:11: note: 'sprintf' output between 13 and 17 bytes into a destination of size 15
-  111 |           sprintf((char*)mess,"Value: %d \n \r",(int)value);
-      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-arm-none-eabi-gcc -o "ADC.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\hung\STM32CubeIDE\workspace_1.16.0\Learning_stm32\ADC\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: ADC.elf
- 
 arm-none-eabi-size  ADC.elf 
-arm-none-eabi-objdump -h -S ADC.elf  > "ADC.list"
    text	   data	    bss	    dec	    hex	filename
   12224	    108	   2172	  14504	   38a8	ADC.elf
-arm-none-eabi-objcopy  -O ihex ADC.elf  "ADC.hex"
 Finished building: default.size.stdout
  
-Finished building: ADC.hex
- 
-Finished building: ADC.list
- 
 
-21:35:07 Build Finished. 0 errors, 1 warnings. (took 706ms)
+11:54:17 Build Finished. 0 errors, 0 warnings. (took 431ms)
 
