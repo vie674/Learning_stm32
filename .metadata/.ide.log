@@ -1200,3 +1200,9 @@ java.lang.NullPointerException: Cannot invoke "javax.swing.JTextField.getText()"
 2024-11-08 11:56:20,033 [INFO] CADModel:165 - CPN selected for project levelSTM32F103C8T6
 2024-11-08 11:56:20,033 [INFO] CADModel:114 - Register for checkConnection events
 2024-11-08 11:56:20,080 [INFO] OpenFileManager:363 - Restore cursor
+2024-11-08 13:07:34,443 [INFO] WebApp:189 - Connection lost
+2024-11-08 13:07:34,660 [INFO] WebApp:186 - Connection restablished
+2024-11-08 16:03:49,976 [INFO] WebApp:189 - Connection lost
+2024-11-08 16:03:50,660 [INFO] WebApp:186 - Connection restablished
+2024-11-08 16:03:52,942 [INFO] WebApp:189 - Connection lost
+2024-11-08 16:03:53,069 [INFO] WebApp:186 - Connection restablished
