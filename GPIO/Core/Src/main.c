@@ -74,7 +74,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-uint8_t mess[40]="0";
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -107,11 +107,10 @@ uint8_t mess[40]="0";
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_ADC_Start(&hadc1);
-	  HAL_ADC_PollForConversion(&hadc1, 50);
-	  sprintf((char*)mess,"value :%d \n",(int)ADC1->DR);
 	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-	  HAL_UART_Transmit(&huart1, mess, 23, 100);
+	  HAL_UART_Transmit(&huart1, (uint8_t*)"hello from proteus", 23, 100);
+	  HAL_UART_Transmit(&huart2, (uint8_t*)"hello from proteus", 23, 100);
+	  HAL_UART_Transmit(&huart3, (uint8_t*)"hello from proteus", 23, 100);
 	  HAL_Delay(500);
     /* USER CODE END WHILE */
 
@@ -199,7 +198,7 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_9;
   sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_239CYCLES_5;
+  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
