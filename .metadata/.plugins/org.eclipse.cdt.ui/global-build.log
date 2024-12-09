@@ -1,17 +1,50 @@
-16:10:26 **** Incremental Build of configuration Debug for project GPIO ****
+22:35:19 **** Incremental Build of configuration Debug for project SPI_IMU9250 ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "GPIO.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\hung\STM32CubeIDE\workspace_1.16.0\Learning_stm32\GPIO\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GPIO.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: GPIO.elf
- 
-arm-none-eabi-size  GPIO.elf 
-arm-none-eabi-objdump -h -S GPIO.elf  > "GPIO.list"
-arm-none-eabi-objcopy  -O ihex GPIO.elf  "GPIO.hex"
-   text	   data	    bss	    dec	    hex	filename
-   8324	     12	   1836	  10172	   27bc	GPIO.elf
-Finished building: default.size.stdout
- 
-Finished building: GPIO.hex
- 
-Finished building: GPIO.list
- 
+arm-none-eabi-gcc "../Core/Src/mpu.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/mpu.d" -MT"Core/Src/mpu.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/mpu.o"
+In file included from ../Core/Inc/mpu.h:12,
+                 from ../Core/Src/mpu.c:16:
+../Core/Src/mpu.c: In function 'MPU9250_Activate':
+../Core/Inc/config.h:13:33: error: 'GY_CS_GPIO_Port' undeclared (first use in this function); did you mean 'TCK_GPIO_Port'?
+   13 | #define MPU9250_CS_GPIO         GY_CS_GPIO_Port
+      |                                 ^~~~~~~~~~~~~~~
+../Core/Src/mpu.c:113:27: note: in expansion of macro 'MPU9250_CS_GPIO'
+  113 |         HAL_GPIO_WritePin(MPU9250_CS_GPIO, MPU9250_CS_PIN, GPIO_PIN_RESET);
+      |                           ^~~~~~~~~~~~~~~
+../Core/Inc/config.h:13:33: note: each undeclared identifier is reported only once for each function it appears in
+   13 | #define MPU9250_CS_GPIO         GY_CS_GPIO_Port
+      |                                 ^~~~~~~~~~~~~~~
+../Core/Src/mpu.c:113:27: note: in expansion of macro 'MPU9250_CS_GPIO'
+  113 |         HAL_GPIO_WritePin(MPU9250_CS_GPIO, MPU9250_CS_PIN, GPIO_PIN_RESET);
+      |                           ^~~~~~~~~~~~~~~
+../Core/Inc/config.h:14:33: error: 'GY_CS_Pin' undeclared (first use in this function)
+   14 | #define MPU9250_CS_PIN          GY_CS_Pin
+      |                                 ^~~~~~~~~
+../Core/Src/mpu.c:113:44: note: in expansion of macro 'MPU9250_CS_PIN'
+  113 |         HAL_GPIO_WritePin(MPU9250_CS_GPIO, MPU9250_CS_PIN, GPIO_PIN_RESET);
+      |                                            ^~~~~~~~~~~~~~
+../Core/Src/mpu.c: In function 'MPU9250_Deactivate':
+../Core/Inc/config.h:13:33: error: 'GY_CS_GPIO_Port' undeclared (first use in this function); did you mean 'TCK_GPIO_Port'?
+   13 | #define MPU9250_CS_GPIO         GY_CS_GPIO_Port
+      |                                 ^~~~~~~~~~~~~~~
+../Core/Src/mpu.c:118:27: note: in expansion of macro 'MPU9250_CS_GPIO'
+  118 |         HAL_GPIO_WritePin(MPU9250_CS_GPIO, MPU9250_CS_PIN, GPIO_PIN_SET);
+      |                           ^~~~~~~~~~~~~~~
+../Core/Inc/config.h:14:33: error: 'GY_CS_Pin' undeclared (first use in this function)
+   14 | #define MPU9250_CS_PIN          GY_CS_Pin
+      |                                 ^~~~~~~~~
+../Core/Src/mpu.c:118:44: note: in expansion of macro 'MPU9250_CS_PIN'
+  118 |         HAL_GPIO_WritePin(MPU9250_CS_GPIO, MPU9250_CS_PIN, GPIO_PIN_SET);
+      |                                            ^~~~~~~~~~~~~~
+../Core/Src/mpu.c: In function 'SPIx_WriteRead':
+../Core/Src/mpu.c:124:37: error: 'hspi1' undeclared (first use in this function)
+  124 |         if(HAL_SPI_TransmitReceive(&hspi1,(uint8_t*) &Byte,(uint8_t*) &receivedbyte,1,0x1000)!=HAL_OK)
+      |                                     ^~~~~
+../Core/Src/mpu.c: In function 'MPU_SPI_Read':
+../Core/Inc/config.h:12:41: error: 'hspi1' undeclared (first use in this function)
+   12 | #define MPU9250_SPI                     hspi1
+      |                                         ^~~~~
+../Core/Src/mpu.c:151:27: note: in expansion of macro 'MPU9250_SPI'
+  151 |         HAL_SPI_Transmit(&MPU9250_SPI, &data, 1, HAL_MAX_DELAY);
+      |                           ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:43: Core/Src/mpu.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.

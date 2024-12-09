@@ -1,0 +1,15 @@
+/*
+ * mag.c
+ *
+ *  Created on: Dec 2, 2024
+ *      Author: hung
+ */
+
+void HMC5883_WriteRegister (uint8_t data, I2C_HandleTypeDef *hi2c)
+{
+	HAL_I2C_Master_Transmit(hi2c, HMC5883_ADDW, &data, 1, 100);
+}
+uint8_t HMC5883_ReadRegister (I2C_HandleTypeDef *hi2c)
+{
+	HAL_I2C_Master_Receive(hi2c, HMC5883_ADDR, pData, 1, 100);
+}

@@ -1,0 +1,5 @@
+../Core/Src/mag.c:8:6:HMC5883_WriteRegister	1
+../Core/Src/mag.c:12:6:HMC5883_ReadRegister	1
+../Core/Src/mag.c:16:6:HMC5883_ConfigRate	1
+../Core/Src/mag.c:22:6:HMC5883_SetMode	1
+../Core/Src/mag.c:27:6:HMC5883_ReadAllData	1
